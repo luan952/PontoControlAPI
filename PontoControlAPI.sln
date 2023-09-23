@@ -3,7 +3,37 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PontoControl.Infra", "PontoControl.Infra\PontoControl.Infra.csproj", "{6863002F-9A81-4895-A2F8-CE3938723093}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PontoControl.Application", "PontoControl.Application\PontoControl.Application.csproj", "{8032B22A-A083-48FA-B6FA-981E790A3092}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PontoControl.Domain", "PontoControl.Domain\PontoControl.Domain.csproj", "{A8B15DDA-FC34-45DB-A217-06BC02E23252}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PontoControl.API", "PontoControl.API\PontoControl.API.csproj", "{9C455A67-295F-45AC-90C8-009A3F7EDA94}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6863002F-9A81-4895-A2F8-CE3938723093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6863002F-9A81-4895-A2F8-CE3938723093}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6863002F-9A81-4895-A2F8-CE3938723093}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6863002F-9A81-4895-A2F8-CE3938723093}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8032B22A-A083-48FA-B6FA-981E790A3092}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8032B22A-A083-48FA-B6FA-981E790A3092}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8032B22A-A083-48FA-B6FA-981E790A3092}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8032B22A-A083-48FA-B6FA-981E790A3092}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8B15DDA-FC34-45DB-A217-06BC02E23252}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8B15DDA-FC34-45DB-A217-06BC02E23252}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8B15DDA-FC34-45DB-A217-06BC02E23252}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8B15DDA-FC34-45DB-A217-06BC02E23252}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C455A67-295F-45AC-90C8-009A3F7EDA94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C455A67-295F-45AC-90C8-009A3F7EDA94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C455A67-295F-45AC-90C8-009A3F7EDA94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C455A67-295F-45AC-90C8-009A3F7EDA94}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
