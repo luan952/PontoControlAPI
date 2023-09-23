@@ -1,3 +1,4 @@
+using PontoControl.Application.Services;
 using PontoControl.Infra;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,13 @@ builder.Services.AddSwaggerGen();
 
 
 builder.Services.AddRepository(builder.Configuration);
+
+//builder.Services.AddMvc(option => option.Filters.Add(typeof(ExceptionFilter)));
+
+builder.Services.AddScoped(provider => new AutoMapper.MapperConfiguration(config =>
+{
+    config.AddProfile(new AutoMapperConfig());
+}).CreateMapper());
 
 var app = builder.Build();
 

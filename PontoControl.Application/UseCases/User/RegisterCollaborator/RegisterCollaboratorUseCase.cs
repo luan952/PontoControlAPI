@@ -2,7 +2,7 @@
 using PontoControl.Comunication.Requests;
 using PontoControl.Comunication.Responses;
 using PontoControl.Domain.Repositories.Interfaces.User;
-
+using PontoControl.Exceptions;
 
 namespace PontoControl.Application.UseCases.User.RegisterCollaborator
 {
@@ -44,7 +44,8 @@ namespace PontoControl.Application.UseCases.User.RegisterCollaborator
             if (!result.IsValid)
             {
                 var errorMessage = result.Errors.Select(e => e.ErrorMessage).ToList();
-                throw new ValidatorErrorsException(errorMessage);
+
+                //throw new ValidatorErrorsException(errorMessage);
             }
         }
     }
