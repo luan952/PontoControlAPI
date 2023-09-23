@@ -1,4 +1,6 @@
-using PontoControl.Application.Services;
+using PontoControl.API.Filters;
+using PontoControl.Application;
+using PontoControl.Application.Services.AutoMapper;
 using PontoControl.Infra;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,8 +14,9 @@ builder.Services.AddSwaggerGen();
 
 
 builder.Services.AddRepository(builder.Configuration);
+builder.Services.AddInfrastructure(builder.Configuration);
 
-//builder.Services.AddMvc(option => option.Filters.Add(typeof(ExceptionFilter)));
+builder.Services.AddMvc(option => option.Filters.Add(typeof(ExceptionFilter)));
 
 builder.Services.AddScoped(provider => new AutoMapper.MapperConfiguration(config =>
 {

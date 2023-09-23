@@ -61,6 +61,15 @@ namespace PontoControl.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Erro desconhecido..
+        /// </summary>
+        public static string unknow_error {
+            get {
+                return ResourceManager.GetString("unknow_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Email não pode ser nulo..
         /// </summary>
         public static string user_email_empty {

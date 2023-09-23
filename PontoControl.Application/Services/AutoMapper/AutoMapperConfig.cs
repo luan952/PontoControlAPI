@@ -2,11 +2,11 @@
 using PontoControl.Comunication.Requests;
 using PontoControl.Domain.Entities;
 
-namespace PontoControl.Application.Services
+namespace PontoControl.Application.Services.AutoMapper
 {
     public class AutoMapperConfig : Profile
     {
-        public AutoMapperConfig() 
+        public AutoMapperConfig()
         {
             EntityForResponse();
             RequestForEntity();
@@ -14,7 +14,7 @@ namespace PontoControl.Application.Services
 
         public void EntityForResponse()
         {
-            
+
         }
 
         public void RequestForEntity()
