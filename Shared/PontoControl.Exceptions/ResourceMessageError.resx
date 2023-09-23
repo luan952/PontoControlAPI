@@ -123,6 +123,9 @@
   <data name="expired_token" xml:space="preserve">
     <value>Token expirado. Faça login novamente.</value>
   </data>
+  <data name="invalid_login" xml:space="preserve">
+    <value>Email ou Senha inválidos.</value>
+  </data>
   <data name="unauthorized_token" xml:space="preserve">
     <value>Você não tem permissão para essa requisição.</value>
   </data>

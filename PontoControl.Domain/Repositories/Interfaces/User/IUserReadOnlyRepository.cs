@@ -6,5 +6,6 @@ namespace PontoControl.Domain.Repositories.Interfaces.User
     {
         Task<bool> IsEmailExists(string email);
         Task<Domain.Entities.User> GetUserByEmail(string email);
+        Task<Domain.Entities.User> Login(string email, string password);
     }
 }

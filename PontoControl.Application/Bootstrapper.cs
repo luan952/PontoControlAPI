@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using PontoControl.Application.Services.Cryptography;
 using PontoControl.Application.Services.GetUserLogged;
 using PontoControl.Application.Services.Token;
+using PontoControl.Application.UseCases.Login.DoLogin;
 using PontoControl.Application.UseCases.User.RegisterCollaborator;
 
 namespace PontoControl.Application
@@ -29,7 +30,9 @@ namespace PontoControl.Application
 
         private static void AddUserLogged(this IServiceCollection services)
         {
-            services.AddScoped<IUserLogged, UserLogged>();
+            services
+                .AddScoped<IUserLogged, UserLogged>()
+                .AddScoped<ILoginUseCase, LoginUseCase>();
         }
 
         private static void AddTokenJWT(IServiceCollection services, IConfiguration configuration)

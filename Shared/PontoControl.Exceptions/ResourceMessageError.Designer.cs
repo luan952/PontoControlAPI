@@ -79,6 +79,15 @@ namespace PontoControl.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Email ou Senha inválidos..
+        /// </summary>
+        public static string invalid_login {
+            get {
+                return ResourceManager.GetString("invalid_login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Você não tem permissão para essa requisição..
         /// </summary>
         public static string unauthorized_token {

@@ -11,7 +11,7 @@ namespace PontoControl.API.Controllers
     {
         [HttpPost]
         [ProducesResponseType(typeof(RegisterCollaboratorRequest), StatusCodes.Status201Created)]
-        [ServiceFilter(typeof(UserAuthenticatedAttribute))]
+        //[ServiceFilter(typeof(UserAuthenticatedAttribute))]
         public async Task<IActionResult> RegisterCollaborator([FromServices] IRegisterCollaboratorUseCase useCase, [FromBody] RegisterCollaboratorRequest request)
         {
             var result = await useCase.Execute(request);

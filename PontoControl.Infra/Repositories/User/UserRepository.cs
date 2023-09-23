@@ -30,5 +30,11 @@ namespace PontoControl.Infra.Repositories.User
         {
             return await _context.Collaborators.AnyAsync(c => c.Email.Equals(email));
         }
+
+        public async Task<Domain.Entities.User> Login(string email, string password)
+        {
+            return await _context.Users
+                .FirstOrDefaultAsync(u => u.Email.Equals(email) && u.Password.Equals(password));
+        }
     }
 }

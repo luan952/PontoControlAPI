@@ -21,6 +21,8 @@ namespace PontoControl.API.Filters
         {
             if (context.Exception is ValidatorErrorException)
                 HandleValidatorErrorException(context);
+            else if (context.Exception is InvalidLoginException)
+                HandleInvalidLoginException(context);
         }
 
         private static void HandleValidatorErrorException(ExceptionContext context)
@@ -31,6 +33,17 @@ namespace PontoControl.API.Filters
             {
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 context.Result = new ObjectResult(new ErrorResponse(exception.ErrorMessages));
+            }
+        }
+
+        private static void HandleInvalidLoginException(ExceptionContext context)
+        {
+            var loginError = context.Exception as InvalidLoginException;
+
+            if (loginError is not null)
+            {
+                context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                context.Result = new ObjectResult(new ErrorResponse(loginError.Message));
             }
         }
 
