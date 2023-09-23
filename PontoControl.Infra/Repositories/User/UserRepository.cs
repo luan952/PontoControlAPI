@@ -14,6 +14,13 @@ namespace PontoControl.Infra.Repositories.User
             _context = context;
         }
 
+        public async Task<Domain.Entities.User> GetUserByEmail(string email)
+        {
+            return await _context.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(c => c.Email.Equals(email));
+        }
+
         public async Task InsertCollaborator(Collaborator collaborator)
         {
             await _context.Collaborators.AddAsync(collaborator);

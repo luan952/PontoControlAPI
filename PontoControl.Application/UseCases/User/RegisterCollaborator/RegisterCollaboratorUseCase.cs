@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using PontoControl.Application.Services.Cryptography;
+using PontoControl.Application.Services.GetUserLogged;
 using PontoControl.Application.Services.Token;
 using PontoControl.Comunication.Requests;
 using PontoControl.Comunication.Responses;
+using PontoControl.Domain.Entities;
 using PontoControl.Domain.Repositories;
 using PontoControl.Domain.Repositories.Interfaces.User;
 using PontoControl.Exceptions;
@@ -18,11 +20,13 @@ namespace PontoControl.Application.UseCases.User.RegisterCollaborator
         private readonly PasswordEncryptor _passwordEncryptor;
         private readonly TokenController _token;
         private readonly IUnityOfWork _unityOfWork;
+        private readonly IUserLogged _userLogged;
 
         public RegisterCollaboratorUseCase(IUserWriteOnlyRepository userWriteOnlyRepository, 
                                            IUserReadOnlyRepository userReadOnlyRepository,
                                            IMapper mapper, PasswordEncryptor passwordEncryptor,
-                                           TokenController token, IUnityOfWork unityOfWork)
+                                           TokenController token, IUnityOfWork unityOfWork,
+                                           IUserLogged userLogged)
         {
             _userWriteOnlyRepository = userWriteOnlyRepository;
             _userReadOnlyRepository = userReadOnlyRepository;
@@ -30,6 +34,7 @@ namespace PontoControl.Application.UseCases.User.RegisterCollaborator
             _passwordEncryptor = passwordEncryptor;
             _token = token;
             _unityOfWork = unityOfWork;
+            _userLogged = userLogged;
         }
 
         public async Task<RegisterCollaboratorResponse> Execute(RegisterCollaboratorRequest request)
@@ -38,6 +43,10 @@ namespace PontoControl.Application.UseCases.User.RegisterCollaborator
 
             var user = _mapper.Map<Domain.Entities.Collaborator>(request);
             user.Password = _passwordEncryptor.Encrypt(request.Password);
+            user.TypeUser = Domain.Enum.UserType.COLLABORATOR;
+
+            var userLogged = await _userLogged.GetUserLogged();
+            user.AdminId = userLogged.Id;
 
             await _userWriteOnlyRepository.InsertCollaborator(user);
             await _unityOfWork.Commit();

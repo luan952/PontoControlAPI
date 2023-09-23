@@ -6,11 +6,14 @@ using PontoControl.Infra;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddRouting(opt => opt.LowercaseUrls = true);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddHttpContextAccessor();
 
 
 builder.Services.AddRepository(builder.Configuration);
@@ -22,6 +25,8 @@ builder.Services.AddScoped(provider => new AutoMapper.MapperConfiguration(config
 {
     config.AddProfile(new AutoMapperConfig());
 }).CreateMapper());
+
+builder.Services.AddScoped<UserAuthenticatedAttribute>();
 
 var app = builder.Build();
 

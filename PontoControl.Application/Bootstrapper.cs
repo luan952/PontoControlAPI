@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PontoControl.Application.Services.Cryptography;
+using PontoControl.Application.Services.GetUserLogged;
 using PontoControl.Application.Services.Token;
 using PontoControl.Application.UseCases.User.RegisterCollaborator;
 
@@ -13,6 +14,7 @@ namespace PontoControl.Application
             AddUseCases(services);
             AddPasswordEncryptor(services);
             AddTokenJWT(services, configuration);
+            AddUserLogged(services);
         }
 
         private static void AddUseCases(IServiceCollection services)
@@ -23,6 +25,11 @@ namespace PontoControl.Application
         private static void AddPasswordEncryptor(this IServiceCollection services)
         {
             services.AddScoped(option => new PasswordEncryptor());
+        }
+
+        private static void AddUserLogged(this IServiceCollection services)
+        {
+            services.AddScoped<IUserLogged, UserLogged>();
         }
 
         private static void AddTokenJWT(IServiceCollection services, IConfiguration configuration)

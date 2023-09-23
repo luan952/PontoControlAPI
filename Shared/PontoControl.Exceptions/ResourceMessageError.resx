@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="document_invalid" xml:space="preserve">
+    <value>O cpf é inválido.</value>
+  </data>
+  <data name="expired_token" xml:space="preserve">
+    <value>Token expirado. Faça login novamente.</value>
+  </data>
+  <data name="unauthorized_token" xml:space="preserve">
+    <value>Você não tem permissão para essa requisição.</value>
+  </data>
   <data name="unknow_error" xml:space="preserve">
     <value>Erro desconhecido.</value>
   </data>
@@ -134,5 +143,8 @@
   </data>
   <data name="user_password_minlength" xml:space="preserve">
     <value>Senha deve ter pelo menos 6 caracteres.</value>
+  </data>
+  <data name="user_position_empty" xml:space="preserve">
+    <value>Cargo não pode ser nulo.</value>
   </data>
 </root>

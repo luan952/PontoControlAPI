@@ -7,7 +7,7 @@ namespace PontoControl.Exceptions.ExceptionsBase
         public List<string> ErrorMessages { get; set; }
         public ValidatorErrorException(List<string> errorMessages) : base(string.Empty)
         {
-            errorMessages = ErrorMessages;
+            ErrorMessages = errorMessages;
         }
 
         protected ValidatorErrorException(SerializationInfo info, StreamingContext context) : base(info, context) { }

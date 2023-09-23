@@ -61,6 +61,33 @@ namespace PontoControl.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O cpf é inválido..
+        /// </summary>
+        public static string document_invalid {
+            get {
+                return ResourceManager.GetString("document_invalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Token expirado. Faça login novamente..
+        /// </summary>
+        public static string expired_token {
+            get {
+                return ResourceManager.GetString("expired_token", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Você não tem permissão para essa requisição..
+        /// </summary>
+        public static string unauthorized_token {
+            get {
+                return ResourceManager.GetString("unauthorized_token", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Erro desconhecido..
         /// </summary>
         public static string unknow_error {
@@ -111,6 +138,15 @@ namespace PontoControl.Exceptions {
         public static string user_password_minlength {
             get {
                 return ResourceManager.GetString("user_password_minlength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Cargo não pode ser nulo..
+        /// </summary>
+        public static string user_position_empty {
+            get {
+                return ResourceManager.GetString("user_position_empty", resourceCulture);
             }
         }
     }
