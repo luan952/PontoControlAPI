@@ -61,6 +61,15 @@ namespace PontoControl.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Senha atual não é válida..
+        /// </summary>
+        public static string current_password_invalid {
+            get {
+                return ResourceManager.GetString("current_password_invalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a O cpf é inválido..
         /// </summary>
         public static string document_invalid {
@@ -138,6 +147,15 @@ namespace PontoControl.Exceptions {
         public static string user_lastname_empty {
             get {
                 return ResourceManager.GetString("user_lastname_empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O campo senha não pode ser nulo..
+        /// </summary>
+        public static string user_password_empty {
+            get {
+                return ResourceManager.GetString("user_password_empty", resourceCulture);
             }
         }
         

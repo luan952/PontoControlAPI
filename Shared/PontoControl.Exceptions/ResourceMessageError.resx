@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="current_password_invalid" xml:space="preserve">
+    <value>Senha atual não é válida.</value>
+  </data>
   <data name="document_invalid" xml:space="preserve">
     <value>O cpf é inválido.</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="user_lastname_empty" xml:space="preserve">
     <value>Sobrenome do usuário não pode ser nulo.</value>
+  </data>
+  <data name="user_password_empty" xml:space="preserve">
+    <value>O campo senha não pode ser nulo.</value>
   </data>
   <data name="user_password_minlength" xml:space="preserve">
     <value>Senha deve ter pelo menos 6 caracteres.</value>

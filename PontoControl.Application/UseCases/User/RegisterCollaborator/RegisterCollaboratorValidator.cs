@@ -12,7 +12,7 @@ namespace PontoControl.Application.UseCases.User.RegisterCollaborator
             RuleFor(x => x.FirstName).NotEmpty().WithMessage(ResourceMessageError.user_firstname_empty);
             RuleFor(x => x.LastName).NotEmpty().WithMessage(ResourceMessageError.user_lastname_empty);
             RuleFor(x => x.Email).NotEmpty().WithMessage(ResourceMessageError.user_email_empty);
-            RuleFor(x => x.Password).NotEmpty().WithMessage(ResourceMessageError.user_email_empty);
+            RuleFor(x => x.Password).NotEmpty().WithMessage(ResourceMessageError.user_password_empty);
             RuleFor(x => x.Position).NotEmpty().WithMessage(ResourceMessageError.user_position_empty);
 
             When(x => !String.IsNullOrWhiteSpace(x.Password), () =>

@@ -29,7 +29,8 @@ namespace PontoControl.Infra
         {
             services
                 .AddScoped<IUserWriteOnlyRepository, UserRepository>()
-                .AddScoped<IUserReadOnlyRepository, UserRepository>();
+                .AddScoped<IUserReadOnlyRepository, UserRepository>()
+                .AddScoped<IUserUpdateOnlyRepository, UserRepository>();
         }
 
         public static void AddUnityOfWork(IServiceCollection services)
