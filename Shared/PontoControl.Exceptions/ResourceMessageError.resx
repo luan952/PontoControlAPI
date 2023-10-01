@@ -123,11 +123,20 @@
   <data name="document_invalid" xml:space="preserve">
     <value>O cpf é inválido.</value>
   </data>
+  <data name="exceeded_markings" xml:space="preserve">
+    <value>As marcações devem se limitar a quatro por dia.</value>
+  </data>
   <data name="expired_token" xml:space="preserve">
     <value>Token expirado. Faça login novamente.</value>
   </data>
   <data name="invalid_login" xml:space="preserve">
     <value>Email ou Senha inválidos.</value>
+  </data>
+  <data name="marking_address_empty" xml:space="preserve">
+    <value>Endereço não pode ser vazio.</value>
+  </data>
+  <data name="marking_hour_empty" xml:space="preserve">
+    <value>Hora não pode ser vazio.</value>
   </data>
   <data name="unauthorized_token" xml:space="preserve">
     <value>Você não tem permissão para essa requisição.</value>

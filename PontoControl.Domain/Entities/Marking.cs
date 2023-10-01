@@ -3,6 +3,7 @@
     public class Marking : BaseEntity
     {
         public DateTime Hour { get; set; }
+        public string Address { get; set; }
         public Collaborator Collaborator { get; set; }
         public Guid CollaboratorId { get; set; }
     }

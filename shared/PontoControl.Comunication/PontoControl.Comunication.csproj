@@ -6,4 +6,8 @@
     <Nullable>disable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\PontoControl.Domain\PontoControl.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

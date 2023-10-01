@@ -7,7 +7,7 @@ namespace PontoControl.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class LoginController  : ControllerBase
+    public class LoginController : ControllerBase
     {
         [HttpPost]
         [ProducesResponseType(typeof(ResponseLogin), StatusCodes.Status201Created)]

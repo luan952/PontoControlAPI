@@ -79,6 +79,15 @@ namespace PontoControl.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a As marcações devem se limitar a quatro por dia..
+        /// </summary>
+        public static string exceeded_markings {
+            get {
+                return ResourceManager.GetString("exceeded_markings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Token expirado. Faça login novamente..
         /// </summary>
         public static string expired_token {
@@ -93,6 +102,24 @@ namespace PontoControl.Exceptions {
         public static string invalid_login {
             get {
                 return ResourceManager.GetString("invalid_login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Endereço não pode ser vazio..
+        /// </summary>
+        public static string marking_address_empty {
+            get {
+                return ResourceManager.GetString("marking_address_empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Hora não pode ser vazio..
+        /// </summary>
+        public static string marking_hour_empty {
+            get {
+                return ResourceManager.GetString("marking_hour_empty", resourceCulture);
             }
         }
         

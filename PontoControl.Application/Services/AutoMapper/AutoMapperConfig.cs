@@ -20,6 +20,7 @@ namespace PontoControl.Application.Services.AutoMapper
         public void RequestForEntity()
         {
             CreateMap<RegisterCollaboratorRequest, Collaborator>();
+            CreateMap<RegisterMarkingRequest, Marking>();
         }
     }
 }
