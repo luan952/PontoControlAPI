@@ -4,6 +4,7 @@ using PontoControl.Application.Services.Cryptography;
 using PontoControl.Application.Services.GetUserLogged;
 using PontoControl.Application.Services.Token;
 using PontoControl.Application.UseCases.Login.DoLogin;
+using PontoControl.Application.UseCases.Marking.GetByUser;
 using PontoControl.Application.UseCases.Marking.Register;
 using PontoControl.Application.UseCases.User.RegisterCollaborator;
 using PontoControl.Application.UseCases.User.UpdatePassword;
@@ -36,7 +37,8 @@ namespace PontoControl.Application
                 .AddScoped<IUserLogged, UserLogged>()
                 .AddScoped<ILoginUseCase, LoginUseCase>()
                 .AddScoped<IUpdatePasswordUseCase, UpdatePasswordUseCase>()
-                .AddScoped<IRegisterMakingUseCase, RegisterMakingUseCase>();
+                .AddScoped<IRegisterMakingUseCase, RegisterMakingUseCase>()
+                .AddScoped<IGetMarkingsUseCase, GetMarkingsUseCase>();
         }
 
         private static void AddTokenJWT(IServiceCollection services, IConfiguration configuration)

@@ -13,6 +13,14 @@ namespace PontoControl.Infra.Repositories.Marking
             _context = context;
         }
 
+        public async Task<List<Domain.Entities.Marking>> GetMarkingsByUser(Guid userId)
+        {
+            return await _context.Markings.
+                                    AsNoTracking().
+                                    Where(m => m.CollaboratorId == userId).
+                                    OrderBy(m => m.Hour).ToListAsync();
+        }
+
         public async Task<List<Domain.Entities.Marking>> GetMarkingsOfDayByUserId(Guid userId)
         {
             return await _context.Markings.
