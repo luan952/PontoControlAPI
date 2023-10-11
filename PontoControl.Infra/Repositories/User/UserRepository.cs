@@ -21,12 +21,6 @@ namespace PontoControl.Infra.Repositories.User
                                     .FirstOrDefaultAsync(c => c.Email.Equals(email));
         }
 
-        public async Task InsertCollaborator(Collaborator collaborator)
-        {
-            await _context.Collaborators
-                            .AddAsync(collaborator);
-        }
-
         public async Task<bool> IsEmailExists(string email)
         {
             return await _context.Users

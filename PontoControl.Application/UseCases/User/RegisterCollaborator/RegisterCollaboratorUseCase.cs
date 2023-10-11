@@ -6,6 +6,7 @@ using PontoControl.Comunication.Requests;
 using PontoControl.Comunication.Responses;
 using PontoControl.Domain.Entities;
 using PontoControl.Domain.Repositories;
+using PontoControl.Domain.Repositories.Interfaces.Collaborator;
 using PontoControl.Domain.Repositories.Interfaces.User;
 using PontoControl.Exceptions;
 using PontoControl.Exceptions.ExceptionsBase;
@@ -14,21 +15,21 @@ namespace PontoControl.Application.UseCases.User.RegisterCollaborator
 {
     public class RegisterCollaboratorUseCase : IRegisterCollaboratorUseCase
     {
-        private readonly IUserWriteOnlyRepository _userWriteOnlyRepository;
         private readonly IUserReadOnlyRepository _userReadOnlyRepository;
+        private readonly ICollaboratorWriteOnlyRepository _collaboratorWriteOnlyRepository;
         private readonly IMapper _mapper;
         private readonly PasswordEncryptor _passwordEncryptor;
         private readonly TokenController _token;
         private readonly IUnityOfWork _unityOfWork;
         private readonly IUserLogged _userLogged;
 
-        public RegisterCollaboratorUseCase(IUserWriteOnlyRepository userWriteOnlyRepository, 
+        public RegisterCollaboratorUseCase(ICollaboratorWriteOnlyRepository collaboratorWriteOnlyRepository,
                                            IUserReadOnlyRepository userReadOnlyRepository,
                                            IMapper mapper, PasswordEncryptor passwordEncryptor,
                                            TokenController token, IUnityOfWork unityOfWork,
                                            IUserLogged userLogged)
         {
-            _userWriteOnlyRepository = userWriteOnlyRepository;
+            _collaboratorWriteOnlyRepository = collaboratorWriteOnlyRepository;
             _userReadOnlyRepository = userReadOnlyRepository;
             _mapper = mapper;
             _passwordEncryptor = passwordEncryptor;
@@ -48,7 +49,7 @@ namespace PontoControl.Application.UseCases.User.RegisterCollaborator
             var userLogged = await _userLogged.GetUserLogged();
             user.AdminId = userLogged.Id;
 
-            await _userWriteOnlyRepository.InsertCollaborator(user);
+            await _collaboratorWriteOnlyRepository.InsertCollaborator(user);
             await _unityOfWork.Commit();
 
             return new()

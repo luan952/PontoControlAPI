@@ -2,8 +2,10 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PontoControl.Domain.Repositories;
+using PontoControl.Domain.Repositories.Interfaces.Collaborator;
 using PontoControl.Domain.Repositories.Interfaces.Marking;
 using PontoControl.Domain.Repositories.Interfaces.User;
+using PontoControl.Infra.Repositories.Collaborator;
 using PontoControl.Infra.Repositories.Marking;
 using PontoControl.Infra.Repositories.User;
 using PontoControl.Infra.RepositoryAccess;
@@ -33,6 +35,8 @@ namespace PontoControl.Infra
                 .AddScoped<IUserWriteOnlyRepository, UserRepository>()
                 .AddScoped<IUserReadOnlyRepository, UserRepository>()
                 .AddScoped<IUserUpdateOnlyRepository, UserRepository>()
+                .AddScoped<ICollaboratorWriteOnlyRepository, CollaboratorRepository>()
+                .AddScoped<ICollaboratorReadOnlyRepository, CollaboratorRepository>()
                 .AddScoped<IMarkingReadOnlyRepository, MarkingRepository>()
                 .AddScoped<IMarkingWriteOnlyRepository, MarkingRepository>();
         }
