@@ -42,6 +42,8 @@ namespace PontoControl.Application.UseCases.Marking.Register
             await _markingWriteOnlyRepository.Register(marking);
             await _unityOfWork.Commit();
 
+            markingsOfDay.Add(marking);
+
             return new()
             {
                 Marking = markingsOfDay

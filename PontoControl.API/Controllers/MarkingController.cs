@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PontoControl.API.Filters;
 using PontoControl.Application.UseCases.Marking.GetByUser;
+using PontoControl.Application.UseCases.Marking.GetOfDay;
 using PontoControl.Application.UseCases.Marking.Register;
 using PontoControl.Comunication.Requests;
 using PontoControl.Comunication.Responses;
@@ -30,6 +31,20 @@ namespace PontoControl.API.Controllers
             var result = await useCase.Execute(request);
 
             if (!result.Marking.Any())
+                return NoContent();
+
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(MarkingOfDayResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ServiceFilter(typeof(UserAuthenticatedAttribute))]
+        public async Task<IActionResult> GetMarkingsOfDayByUser([FromServices] IGetMarkingOfDayUseCase useCase)
+        {
+            var result = await useCase.Execute();
+
+            if (!result.MarkingsOfDay.Marking.Any())
                 return NoContent();
 
             return Ok(result);

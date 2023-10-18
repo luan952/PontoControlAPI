@@ -5,6 +5,7 @@ using PontoControl.Application.Services.GetUserLogged;
 using PontoControl.Application.Services.Token;
 using PontoControl.Application.UseCases.Login.DoLogin;
 using PontoControl.Application.UseCases.Marking.GetByUser;
+using PontoControl.Application.UseCases.Marking.GetOfDay;
 using PontoControl.Application.UseCases.Marking.Register;
 using PontoControl.Application.UseCases.User.RegisterCollaborator;
 using PontoControl.Application.UseCases.User.UpdatePassword;
@@ -38,7 +39,8 @@ namespace PontoControl.Application
                 .AddScoped<ILoginUseCase, LoginUseCase>()
                 .AddScoped<IUpdatePasswordUseCase, UpdatePasswordUseCase>()
                 .AddScoped<IRegisterMakingUseCase, RegisterMakingUseCase>()
-                .AddScoped<IGetMarkingsUseCase, GetMarkingsUseCase>();
+                .AddScoped<IGetMarkingsUseCase, GetMarkingsUseCase>()
+                .AddScoped<IGetMarkingOfDayUseCase, GetMarkingOfDayUseCase>();
         }
 
         private static void AddTokenJWT(IServiceCollection services, IConfiguration configuration)
