@@ -26,13 +26,18 @@ namespace PontoControl.Application.UseCases.Marking.GetByUser
                 listMarkings = Filter(listMarkings, request);
             }
 
-            var groupedMarkings = listMarkings.GroupBy(m => m.Hour.Date)
-                                              .Select(group => new GetMarkingResponse
-                                              {
-                                                  Marking = group.ToList(),
-                                                  Date = group.Key
-                                              })
-                                              .ToList();
+            var groupedMarkings = new List<GetMarkingResponse>();
+            if (listMarkings.Any())
+            {
+                groupedMarkings = listMarkings.GroupBy(m => m.Hour.Date)
+                                                  .Select(group => new GetMarkingResponse
+                                                  {
+                                                      Marking = group.ToList(),
+                                                      Date = group.Key
+                                                  })
+                                                  .ToList();
+            }
+
             return groupedMarkings;
         }
 
