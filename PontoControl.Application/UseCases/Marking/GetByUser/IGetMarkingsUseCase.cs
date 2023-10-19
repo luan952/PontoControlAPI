@@ -5,6 +5,6 @@ namespace PontoControl.Application.UseCases.Marking.GetByUser
 {
     public interface IGetMarkingsUseCase
     {
-        Task<GetMarkingResponse> Execute(GetMarkingByUserRequest request);
+        Task<List<GetMarkingResponse>> Execute(GetMarkingByUserRequest request);
     }
 }

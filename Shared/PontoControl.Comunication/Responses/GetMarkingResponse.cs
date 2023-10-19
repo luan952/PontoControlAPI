@@ -5,5 +5,6 @@ namespace PontoControl.Comunication.Responses
     public class GetMarkingResponse
     {
         public List<Marking> Marking { get; set; }
+        public DateTime Date { get; set; }
     }
 }

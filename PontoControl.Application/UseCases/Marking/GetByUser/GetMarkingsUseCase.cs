@@ -16,7 +16,7 @@ namespace PontoControl.Application.UseCases.Marking.GetByUser
             _userLogged = userLogged;
         }
 
-        public async Task<GetMarkingResponse> Execute(GetMarkingByUserRequest request)
+        public async Task<List<GetMarkingResponse>> Execute(GetMarkingByUserRequest request)
         {
             var user = await _userLogged.GetUserLogged();
             var listMarkings = await _markingReadOnlyRepository.GetMarkingsByUser(user.Id);
@@ -26,10 +26,14 @@ namespace PontoControl.Application.UseCases.Marking.GetByUser
                 listMarkings = Filter(listMarkings, request);
             }
 
-            return new()
-            {
-                Marking = listMarkings
-            };
+            var groupedMarkings = listMarkings.GroupBy(m => m.Hour.Date)
+                                              .Select(group => new GetMarkingResponse
+                                              {
+                                                  Marking = group.ToList(),
+                                                  Date = group.Key
+                                              })
+                                              .ToList();
+            return groupedMarkings;
         }
 
         private static List<Domain.Entities.Marking> Filter(List<Domain.Entities.Marking> markings, GetMarkingByUserRequest filters)

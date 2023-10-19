@@ -30,7 +30,7 @@ namespace PontoControl.API.Controllers
         {
             var result = await useCase.Execute(request);
 
-            if (!result.Marking.Any())
+            if (!result.Any())
                 return NoContent();
 
             return Ok(result);
