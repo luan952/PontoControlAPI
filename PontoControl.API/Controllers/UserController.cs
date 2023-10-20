@@ -2,6 +2,7 @@
 using PontoControl.API.Filters;
 using PontoControl.Application.UseCases.User.RegisterCollaborator;
 using PontoControl.Application.UseCases.User.UpdatePassword;
+using PontoControl.Application.UseCases.User.UpdatePasswordNoLogged;
 using PontoControl.Comunication.Requests;
 
 namespace PontoControl.API.Controllers
@@ -24,6 +25,15 @@ namespace PontoControl.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ServiceFilter(typeof(UserAuthenticatedAttribute))]
         public async Task<IActionResult> UpdatePassword([FromServices] IUpdatePasswordUseCase useCase, [FromBody] UpdatePasswordRequest request)
+        {
+            await useCase.Execute(request);
+            return NoContent();
+        }
+
+        [HttpPut]
+        [Route("update-password-no-logged")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> UpdatePasswordNoLogged([FromServices] IUpdatePasswordNoLoggedUseCase useCase, [FromBody] UpdatePasswordNoLoggedRequest request)
         {
             await useCase.Execute(request);
             return NoContent();

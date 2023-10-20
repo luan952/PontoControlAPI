@@ -151,6 +151,15 @@ namespace PontoControl.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Email não encontrado..
+        /// </summary>
+        public static string user_email_not_exists {
+            get {
+                return ResourceManager.GetString("user_email_not_exists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Email ou senhas não são válidos..
         /// </summary>
         public static string user_email_repeated {

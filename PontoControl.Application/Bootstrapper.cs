@@ -9,6 +9,7 @@ using PontoControl.Application.UseCases.Marking.GetOfDay;
 using PontoControl.Application.UseCases.Marking.Register;
 using PontoControl.Application.UseCases.User.RegisterCollaborator;
 using PontoControl.Application.UseCases.User.UpdatePassword;
+using PontoControl.Application.UseCases.User.UpdatePasswordNoLogged;
 
 namespace PontoControl.Application
 {
@@ -40,7 +41,8 @@ namespace PontoControl.Application
                 .AddScoped<IUpdatePasswordUseCase, UpdatePasswordUseCase>()
                 .AddScoped<IRegisterMakingUseCase, RegisterMakingUseCase>()
                 .AddScoped<IGetMarkingsUseCase, GetMarkingsUseCase>()
-                .AddScoped<IGetMarkingOfDayUseCase, GetMarkingOfDayUseCase>();
+                .AddScoped<IGetMarkingOfDayUseCase, GetMarkingOfDayUseCase>()
+                .AddScoped<IUpdatePasswordNoLoggedUseCase, UpdatePasswordNoLoggedUseCase>();
         }
 
         private static void AddTokenJWT(IServiceCollection services, IConfiguration configuration)
