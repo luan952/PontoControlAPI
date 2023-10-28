@@ -61,7 +61,7 @@ namespace PontoControl.Application.UseCases.Marking.DowloadMarkings
             });
         }
 
-        private string GetFormattedHour(DateTime? dateTime)
+        private static string GetFormattedHour(DateTime? dateTime)
         {
             if (dateTime.HasValue)
             {

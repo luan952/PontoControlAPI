@@ -53,10 +53,10 @@ namespace PontoControl.Application.UseCases.Marking.GetByUser
             var listFiltered = markings;
 
             if (filters.StarDate is not null)
-                listFiltered = listFiltered.Where(m => m.Hour >= filters.StarDate).ToList();
+                listFiltered = listFiltered.Where(m => m.Hour.Date >= filters.StarDate).ToList();
 
             if (filters.EndDate is not null)
-                listFiltered = listFiltered.Where(m => m.Hour <= filters.EndDate).ToList();
+                listFiltered = listFiltered.Where(m => m.Hour.Date <= filters.EndDate).ToList();
 
             return listFiltered;
         }
