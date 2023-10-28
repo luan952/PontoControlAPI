@@ -26,7 +26,12 @@ namespace PontoControl.Application.UseCases.Marking.GetOfDay
 
             return new()
             {
-                MarkingsOfDay = new GetMarkingResponse() { Marking = markings }
+                MarkingsOfDay = new GetMarkingResponse() { Marking = markings.Select(m => new MarkingResponse 
+                    {
+                        Hour = m.Hour,
+                        Address = m.Address,
+                    }).ToList()
+                }
             };
         }
     }

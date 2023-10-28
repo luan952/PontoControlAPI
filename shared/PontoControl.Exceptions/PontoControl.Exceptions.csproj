@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.102.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="ResourceMessageError.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

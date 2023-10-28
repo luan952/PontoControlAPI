@@ -32,7 +32,11 @@ namespace PontoControl.Application.UseCases.Marking.GetByUser
                 groupedMarkings = listMarkings.GroupBy(m => m.Hour.Date)
                                                   .Select(group => new GetMarkingResponse
                                                   {
-                                                      Marking = group.ToList(),
+                                                      Marking = group.Select(g => new MarkingResponse
+                                                      {
+                                                          Address = g.Address,
+                                                          Hour = g.Hour,
+                                                      }).ToList(),
                                                       Date = group.Key
                                                   })
                                                   .ToList();

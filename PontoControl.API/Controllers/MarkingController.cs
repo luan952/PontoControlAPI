@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ClosedXML.Excel;
+using Microsoft.AspNetCore.Mvc;
 using PontoControl.API.Filters;
+using PontoControl.Application.UseCases.Marking.DowloadMarkings;
 using PontoControl.Application.UseCases.Marking.GetByUser;
 using PontoControl.Application.UseCases.Marking.GetOfDay;
 using PontoControl.Application.UseCases.Marking.Register;
@@ -48,6 +50,13 @@ namespace PontoControl.API.Controllers
                 return NoContent();
 
             return Ok(result);
+        }
+
+        [HttpPut("download-markings")]
+        public async Task<IActionResult> DownloadExcel([FromServices] IDowloadMarkings useCase, [FromBody] DowloadMarkingRequest request)
+        {
+            var fileStream = await useCase.Execute(request);
+            return File(fileStream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "exemplo.xlsx");
         }
     }
 }
