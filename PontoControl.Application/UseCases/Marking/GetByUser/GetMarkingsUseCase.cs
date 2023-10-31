@@ -35,9 +35,10 @@ namespace PontoControl.Application.UseCases.Marking.GetByUser
                                                       Marking = group.Select(g => new MarkingResponse
                                                       {
                                                           Address = g.Address,
-                                                          Hour = g.Hour,
+                                                          Hour = g.Hour
                                                       }).ToList(),
-                                                      Date = group.Key
+                                                      Date = group.Key,
+                                                      TotalHoursByDay = CalculateTotalHours(group.ToList())
                                                   })
                                                   .ToList();
             }
@@ -59,6 +60,16 @@ namespace PontoControl.Application.UseCases.Marking.GetByUser
                 listFiltered = listFiltered.Where(m => m.Hour.Date <= filters.EndDate).ToList();
 
             return listFiltered;
+        }
+
+        private static TimeSpan CalculateTotalHours(List<Domain.Entities.Marking> markings)
+        {
+            TimeSpan morningTime = markings[1].Hour - markings[0].Hour;
+            TimeSpan affternoonTime = markings[3].Hour - markings[2].Hour;
+            
+            var totalHours = morningTime + affternoonTime;
+
+            return totalHours;
         }
     }
 }

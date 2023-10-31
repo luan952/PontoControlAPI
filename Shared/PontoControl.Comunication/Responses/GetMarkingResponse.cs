@@ -6,6 +6,6 @@ namespace PontoControl.Comunication.Responses
     {
         public List<MarkingResponse> Marking { get; set; }
         public DateTime Date { get; set; }
-        public decimal? TotalHoursByDay { get; set; }
+        public TimeSpan? TotalHoursByDay { get; set; }
     }
 }

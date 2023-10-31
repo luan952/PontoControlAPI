@@ -41,8 +41,8 @@ namespace PontoControl.Application.UseCases.Marking.Register
             marking.CollaboratorId = userLogged.Id;
 
             TimeZoneInfo timeZone = TimeZoneInfo.FindSystemTimeZoneById("America/Sao_Paulo");
-            DateTime dateTimeToConvert = DateTime.UtcNow;
-            
+            DateTime dateTimeToConvert = marking.Hour;
+
             marking.Hour = TimeZoneInfo.ConvertTimeFromUtc(dateTimeToConvert, timeZone);
 
             await _markingWriteOnlyRepository.Register(marking);
