@@ -32,8 +32,8 @@ namespace PontoControl.Application.UseCases.User.UpdatePassword
 
             Validate(updateUser, request);
 
-            if ((bool)!userLogged.IsLogged)
-                updateUser.IsLogged = true;
+            if ((bool)!userLogged.IsFirstLogin)
+                updateUser.IsFirstLogin = true;
 
             updateUser.Password = _passwordEncryptor.Encrypt(request.NewPassword);
 
