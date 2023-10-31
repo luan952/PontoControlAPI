@@ -7,6 +7,7 @@ using PontoControl.Domain.Repositories;
 using PontoControl.Domain.Repositories.Interfaces.Marking;
 using PontoControl.Exceptions;
 using PontoControl.Exceptions.ExceptionsBase;
+using System;
 
 namespace PontoControl.Application.UseCases.Marking.Register
 {
@@ -38,6 +39,11 @@ namespace PontoControl.Application.UseCases.Marking.Register
 
             var marking = _mapper.Map<Domain.Entities.Marking>(request);
             marking.CollaboratorId = userLogged.Id;
+
+            TimeZoneInfo timeZone = TimeZoneInfo.FindSystemTimeZoneById("America/Sao_Paulo");
+            DateTime dateTimeToConvert = DateTime.UtcNow;
+            
+            marking.Hour = TimeZoneInfo.ConvertTimeFromUtc(dateTimeToConvert, timeZone);
 
             await _markingWriteOnlyRepository.Register(marking);
             await _unityOfWork.Commit();

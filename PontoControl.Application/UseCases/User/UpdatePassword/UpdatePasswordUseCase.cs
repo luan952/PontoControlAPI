@@ -33,7 +33,7 @@ namespace PontoControl.Application.UseCases.User.UpdatePassword
             Validate(updateUser, request);
 
             if ((bool)!userLogged.IsLogged)
-                userLogged.IsLogged = true;
+                updateUser.IsLogged = true;
 
             updateUser.Password = _passwordEncryptor.Encrypt(request.NewPassword);
 
