@@ -16,7 +16,7 @@ namespace PontoControl.Application.UseCases.User.UpdatePassword
         private readonly IUserUpdateOnlyRepository _userUpdateOnlyRepository;
         private readonly IUnityOfWork _unityOfWork;
 
-        public UpdatePasswordUseCase(IUserLogged userLogged, PasswordEncryptor passwordEncryptor, 
+        public UpdatePasswordUseCase(IUserLogged userLogged, PasswordEncryptor passwordEncryptor,
                                      IUserUpdateOnlyRepository userUpdateOnlyRepository, IUnityOfWork unityOfWork)
         {
             _userLogged = userLogged;
@@ -32,7 +32,11 @@ namespace PontoControl.Application.UseCases.User.UpdatePassword
 
             Validate(updateUser, request);
 
+            if ((bool)!userLogged.IsLogged)
+                userLogged.IsLogged = true;
+
             updateUser.Password = _passwordEncryptor.Encrypt(request.NewPassword);
+
             _userUpdateOnlyRepository.Update(updateUser);
             await _unityOfWork.Commit();
         }

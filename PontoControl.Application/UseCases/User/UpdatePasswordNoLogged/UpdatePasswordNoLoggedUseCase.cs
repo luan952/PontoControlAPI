@@ -41,6 +41,9 @@ namespace PontoControl.Application.UseCases.User.UpdatePasswordNoLogged
 
             Validate(updateUser, request);
 
+            if ((bool)!updateUser.IsLogged)
+                updateUser.IsLogged = true;
+
             updateUser.Password = _passwordEncryptor.Encrypt(request.NewPassword);
             _userUpdateOnlyRepository.Update(updateUser);
             await _unityOfWork.Commit();
