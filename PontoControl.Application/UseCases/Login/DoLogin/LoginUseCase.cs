@@ -48,7 +48,7 @@ namespace PontoControl.Application.UseCases.Login.DoLogin
                     MarkingsOfDay = markingsOfDay,
                     Document = collaborator.Document,
                     Email = collaborator.Email,
-                    IsFirstLogin = collaborator.IsFirstlogin,
+                    IsFirstLogin = (bool)collaborator.IsFirstLogin,
                     Position = collaborator.Position,
                     TypeUser = Domain.Enum.UserType.COLLABORATOR
                 };
