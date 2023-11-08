@@ -64,10 +64,15 @@ namespace PontoControl.Application.UseCases.Marking.GetByUser
 
         private static TimeSpan CalculateTotalHours(List<Domain.Entities.Marking> markings)
         {
-            TimeSpan morningTime = markings[1].Hour - markings[0].Hour;
-            TimeSpan affternoonTime = markings[3].Hour - markings[2].Hour;
-            
-            var totalHours = morningTime + affternoonTime;
+            var totalHours = new TimeSpan();
+
+            if (markings.Count() == 4)
+            {
+                TimeSpan morningTime = markings[1].Hour - markings[0].Hour;
+                TimeSpan affternoonTime = markings[3].Hour - markings[2].Hour;
+
+                totalHours = morningTime + affternoonTime;
+            }
 
             return totalHours;
         }

@@ -2,6 +2,7 @@
 using PontoControl.Application.Services.Token;
 using PontoControl.Comunication.Requests;
 using PontoControl.Comunication.Responses;
+using PontoControl.Domain.Entities;
 using PontoControl.Domain.Repositories.Interfaces.Collaborator;
 using PontoControl.Domain.Repositories.Interfaces.Marking;
 using PontoControl.Domain.Repositories.Interfaces.User;
@@ -58,7 +59,9 @@ namespace PontoControl.Application.UseCases.Login.DoLogin
             {
                 Name = $"{user.FirstName} {user.LastName}",
                 Token = _tokenController.TokenGenerate(user.Email),
-                TypeUser = Domain.Enum.UserType.ADMIN
+                TypeUser = Domain.Enum.UserType.ADMIN,
+                Email = user.Email,
+                IsFirstLogin = (bool)user.IsFirstLogin
             };
         }
     }
