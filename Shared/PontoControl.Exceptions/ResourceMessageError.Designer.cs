@@ -205,6 +205,15 @@ namespace PontoControl.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O campo nova senha não pode ser nulo..
+        /// </summary>
+        public static string user_password_new_empty {
+            get {
+                return ResourceManager.GetString("user_password_new_empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Cargo não pode ser nulo..
         /// </summary>
         public static string user_position_empty {

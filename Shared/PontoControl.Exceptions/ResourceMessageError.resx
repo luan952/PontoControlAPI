@@ -165,6 +165,9 @@
   <data name="user_password_minlength" xml:space="preserve">
     <value>Senha deve ter pelo menos 6 caracteres.</value>
   </data>
+  <data name="user_password_new_empty" xml:space="preserve">
+    <value>O campo nova senha não pode ser nulo.</value>
+  </data>
   <data name="user_position_empty" xml:space="preserve">
     <value>Cargo não pode ser nulo.</value>
   </data>
