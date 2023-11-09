@@ -25,7 +25,7 @@ namespace PontoControl.Application.UseCases.Marking.DowloadMarkings
                 var count = 2;
                 foreach (GetMarkingResponse item in request.ListMarkings)
                 {
-                    ws.Cell(count, 1).Value = item.Date.Date;
+                    ws.Cell(count, 1).Value = item.Date.Date.ToString("dd/MM/yyyy");
                     ws.Cell(count, 2).Value = item.Marking.Count > 0 ? GetFormattedHour(item.Marking[0].Hour) : "Sem marcação";
                     ws.Cell(count, 3).Value = item.Marking.Count > 1 ? GetFormattedHour(item.Marking[1].Hour) : "Sem marcação";
                     ws.Cell(count, 4).Value = item.Marking.Count > 2 ? GetFormattedHour(item.Marking[2].Hour) : "Sem marcação";
