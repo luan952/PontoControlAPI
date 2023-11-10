@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PontoControl.Domain\PontoControl.Domain.csproj" />
+    <ProjectReference Include="..\PontoControl.Infra\PontoControl.Infra.csproj" />
     <ProjectReference Include="..\Shared\PontoControl.Comunication\PontoControl.Comunication.csproj" />
     <ProjectReference Include="..\Shared\PontoControl.Exceptions\PontoControl.Exceptions.csproj" />
   </ItemGroup>

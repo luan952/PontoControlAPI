@@ -3,7 +3,9 @@ using Microsoft.OpenApi.Models;
 using PontoControl.API.Filters;
 using PontoControl.Application;
 using PontoControl.Application.Services.AutoMapper;
+using PontoControl.Application.Services.DataSeeder;
 using PontoControl.Infra;
+using PontoControl.Infra.RepositoryAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -69,6 +71,7 @@ builder.Services.AddCors(options =>
         });
 });
 
+builder.Services.AddScoped<DataSeeder>();
 
 var app = builder.Build();
 
@@ -86,5 +89,13 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.UseCors("AllowSpecificOrigin");
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<PontoControlContext>();
+    var seeder = services.GetRequiredService<DataSeeder>();
+    seeder.SeedData();
+}
 
 app.Run();
